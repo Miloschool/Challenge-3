@@ -1,109 +1,214 @@
-function todayDay() {
-    var getDateForDay = new Date();
-    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    var dayName = days[getDateForDay.getDay()];
-    document.getElementById('todayShow').innerHTML = dayName;
-};
-todayDay();
+// Speed
+var ctx = document.getElementById('chartSpeed').getContext('2d');
+Chart.defaults.global.legend.display = false;
 
 
-function todayTime() {
-    var getDateForTime = new Date();
-    var h = getDateForTime.getHours();
-    var m = getDateForTime.getMinutes();
-    var s = getDateForTime.getSeconds();
-    m = checkTime(m); // Tijden apart gemaakt voor checking time om 0 toe te voegen bij tijden met alleen 1 digit
-    s = checkTime(s); // Tijden apart gemaakt voor checking time om 0 toe te voegen bij tijden met alleen 1 digit
 
-    var currentTime;
-    if (screen.width <= 425) { // Time placeholder width
-        currentTime = h + ':' + m;
-    } else {
-        currentTime = h + ':' + m + ':' + s;
+// Speed colors
+var gradientStroke = ctx.createLinearGradient(200, 0, 50, 20);
+gradientStroke.addColorStop(1, '#45D720');
+gradientStroke.addColorStop(0.5, '#F3A939');
+gradientStroke.addColorStop(0, '#EA6060');
+
+
+
+
+var chart = new Chart(ctx, {
+  type: 'doughnut',
+
+  data: {
+    datasets: [{
+      label: 'Fuel',
+      backgroundColor: [gradientStroke, '#939393'],
+      borderColor: '#787878',
+      borderWidth: '3',
+      data: [100, 20],
+    }]
+  },
+  // Configuration options go here
+  options: {
+    responsive: true,
+    rotation: 1 * Math.PI,
+    circumference: 1 * Math.PI
+  }
+});
+
+
+
+
+// Accerleration 
+var ctxAcc = document.getElementById("chartAcceleration").getContext("2d");
+var myChart = new Chart(ctxAcc, {
+  type: 'line',
+
+  data: {
+    labels: ["0", "1", "2", "3", "4", "5"],
+    datasets: [{
+      borderColor: '#F58A8A',
+      backgroundColor: '#F58A8A',
+      borderWidth: 4,
+      steppedLine: true,
+      fill: false,
+      data: [-10, 30, 50, 90, 30, 10]
+    }]
+  },
+
+  options: {
+    fullWidth: true,
+    responsive: true,
+    tooltips: {
+      mode: 'index',
+      intersect: true
+    },
+    annotation: {
+      annotations: [{
+        type: 'line',
+        mode: 'horizontal',
+      }]
+    },
+
+    // customize Axes lines 
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false,
+        },
+        ticks: {
+          fontColor: "#fff", // color change for ticks
+
+        },
+
+        gridLines: {
+          display: true,
+          zeroLineColor: '#fff',
+          zeroLineWidth: 2,
+        }
+      }],
+      yAxes: [{
+        display: true,
+        gridLines: {
+          display: true,
+        },
+        ticks: {
+          fontColor: "#fff", // this here
+        },
+        gridLines: {
+          display: true,
+          zeroLineColor: '#fff',
+          zeroLineWidth: 2,
+        }
+      }],
+    }
+  }
+});
+
+
+// Fuel
+
+var ticks = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]; // custom ticks xAxes
+var ctxFuel = document.getElementById('chartFuel').getContext('2d');
+
+var myBarChart = new Chart(ctxFuel, {
+  type: 'horizontalBar',
+  data: {
+    datasets: [{
+      backgroundColor: ['#45D720'],
+      label: 'Fuel',
+      data: [84]
+    }]
+  },
+
+  options: {
+    scales: {
+      xAxes: [{
+        ticks: {
+          fontColor: "#fff", 
+          autoSkip: false,
+          min: ticks[ticks.length - 1],
+          max: ticks[0]
+        },
+        afterBuildTicks: function (scale) {
+          scale.ticks = ticks;
+          return;
+        },
+        beforeUpdate: function (oScale) {
+          return;
+        },
+        gridLines: {
+          display: true,
+          zeroLineColor: '#3F4347',
+          zeroLineWidth: 2,
+        }
+      }]
+    }
+  }
+});
+
+
+
+// Distance
+
+var ctxDist = document.getElementById('chartDistance').getContext('2d');
+
+var myChartDistance = new Chart(ctxDist, {
+  type: 'line',
+
+  data: {
+    labels: ["0", "1", "2", "3", "4", "5", "6"],
+    datasets: [{
+      borderColor: '#58E5C4',
+      backgroundColor: '#58E5C4',
+      borderWidth: 4,
+      fill: false,
+      data: [0, 5, 15, 32, 52, 74, 98]
+    }]
+  },
+
+  options: {
+    responsive: true,
+    tooltips: {
+      mode: 'index',
+      intersect: true
+    },
+    fullWidth: true,
+    annotation: {
+      annotations: [{
+        type: 'line',
+        mode: 'horizontal',
+      }]
+    },
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false,
+        },
+        ticks: {
+          fontColor: "#fff", 
+        },
+
+        gridLines: {
+          display: true,
+          zeroLineColor: '#fff',
+          zeroLineWidth: 2,
+        }
+      }],
+
+      yAxes: [{
+        display: true,
+        gridLines: {
+          display: true,
+        },
+        ticks: {
+          fontColor: "#fff",
+        },
+        gridLines: {
+          display: true,
+          zeroLineColor: '#fff',
+          zeroLineWidth: 2,
+
+        }
+      }],
     }
 
-    document.getElementById('timeShow').innerHTML = currentTime;
-
-    var swapImagePlaceholder = document.getElementById('swapImagePlaceholder');
-    var visualDateImg = document.getElementById('dayCyclus');
-
-
-    // // Hours
-     var morning = (h >= 6 && m >= 0) && (h <= 11 && m <=59 && s <=58);
-     var afternoon = (h >= 12 && m >= 0) && (h <= 17 && m <= 59 && s<=58);
-     var evening = (h >= 18 && m >= 0 ) && (h <= 19 && m <= 59 && s<=58);
-     var night = (h >= 20 && m >= 0) || (h <= 5 && m <= 59 && s<=58); // Last fix
-
-    switch (true) { // check which fase of the day it is
-        case morning: 
-            swapImagePlaceholder.classList.add('switchImage');
-            visualDateImg.src = 'images/Morning.svg';
-            break;
-        case afternoon: 
-            swapImagePlaceholder.classList.add('switchImage');
-            visualDateImg.src = 'images/Afternoon.svg';
-            break;
-        case evening: 
-            swapImagePlaceholder.classList.add('switchImage');
-            visualDateImg.src = 'images/Evening.svg';
-            break;
-        case night:  
-            swapImagePlaceholder.classList.add('switchImage');
-            visualDateImg.src = 'images/Night.svg';
-            break;
-        default:
-            swapImagePlaceholder.classList.remove('switchImage');
-            break;  
-    }
-
-
-// Voor docent: remove comment to test the fullRotation after each fase of the day! :D
-
-    // switch (true) { // check which fase of the day it is
-    //     case (s >= 0 && s <= 14) : 
-    //         swapImagePlaceholder.classList.add('switchImage');
-    //         visualDateImg.src = 'images/Morning.svg';
-    //         break;
-    //     case (s >= 16 && s <= 29) : 
-    //         swapImagePlaceholder.classList.add('switchImage');
-    //         visualDateImg.src = 'images/Afternoon.svg';
-    //         break;
-    //     case (s >= 31 && s <= 44) : 
-    //           swapImagePlaceholder.classList.add('switchImage');
-    //         visualDateImg.src = 'images/Evening.svg';
-    //         break;
-    //     case (s >= 46 && s <= 58) : 
-    //                  swapImagePlaceholder.classList.add('switchImage');
-    //         visualDateImg.src = 'images/Night.svg';
-    //         break;
-    //     default:
-    //         swapImagePlaceholder.classList.remove('switchImage');
-    //         break;  
-    // }
-
-    setTimeout(todayTime, 500); //  0.5 seconden
-}
-
-todayTime();
-
-
-function todayDate() {
-    var getTodayDate = new Date();
-    var y = getTodayDate.getFullYear().toString().substr(-2);
-    var m = getTodayDate.getMonth();
-    var d = getTodayDate.getDate();
-    y = checkTime(y);
-    m = checkTime(m);
-    d = checkTime(d);
-    document.getElementById('dateShow').innerHTML = d + '/' + m + '/' + y;
-}
-
-todayDate();
-
-
-function checkTime(i) {
-    if (i < 10) {
-        i = "0" + i
-    }; // Voegt 0 achter een cijfer 
-    return i;
-}
+  }
+});

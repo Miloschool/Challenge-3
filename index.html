@@ -1,30 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <script src="js/main.js" defer></script>
-        <title>SpaceX Earth clock</title>
-    </head>
-    <body>
-        <nav>
-            <img src="images/SpaceX-logo.svg" alt="SpaceX" srcset="" id="navLogo">
-        </nav>
-        <div class="container">
 
-            <div class="container-item" id='swapImagePlaceholder'>
-                <img src="" alt="Day" srcset="" id="dayCyclus">
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <title>SpaceX Dashboard</title>
+</head>
+<body>
 
-            <div class="container-item textOnlyArea">
-                <div id="timeShow" class="itemTextSelf"></div>
+    <nav>
+        <img src="images/SpaceX-Logo.svg" alt="" srcset="" id="nav_logo">
+    </nav>
 
-                <div id="todayShow" class="itemTextSelf"></div>
-
-                <div id="dateShow" class="itemTextSelf"></div>
+    <div class="container">
+        <div class="container-item">
+            <h1>Speed</h1>
+            <div class="inner-item">
+                <canvas id="chartSpeed"></canvas>
             </div>
         </div>
-    </body>
+
+        <div class="container-item">
+            <h1>Acceleration</h1>
+            <div class="inner-item">
+                <canvas id="chartAcceleration"></canvas>
+            </div>
+        </div>
+
+        <div class="container-item">
+            <h1>Fuel</h1>
+            <div class="inner-item">
+                <canvas id="chartFuel"></canvas>
+            </div>
+        </div>
+
+        <div class="container-item">
+            <h1>Distance</h1>
+            <div class="inner-item">
+                <canvas id="chartDistance"></canvas>
+            </div>
+        </div>
+
+        <div class="container-item">
+            <h1>Food</h1>
+            <div class="inner-item">
+                <p>1578 KG</p>
+            </div>
+        </div>
+
+        <div class="container-item">
+            <h1>Water</h1>
+            <div class="inner-item">
+                <p>1811 L</p>
+            </div>
+        </div>
+    </div>
+
+<script src="js/main.js"></script>
+</body>
 </html>
