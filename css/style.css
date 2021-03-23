@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
 
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
     margin: 0;
-    background-color: #22272B;
+    background-color: #E9EFF8;
 }
 
 /* navbar */
@@ -36,7 +36,14 @@ nav {
 h1 {
     font-size: 36px;
     text-align: center;
-    color: #fff;
+    font-weight: 700;
+    color: #000;
+}
+
+h2 {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 400;
 }
 
 .container-item {
