@@ -6,37 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>SpaceX Dashboard</title>
+    <script src="js/main.js" defer></script>
 </head>
 <body>
 
     <nav>
         <img src="images/SpaceX-Logo.svg" alt="" srcset="" id="nav_logo">
     </nav>
-    <div class="container">
-        <div class="container-item">
-            <input type="text" id="locationName" placeholder="Where you want to land?">
-        </div>
 
     <div class="container">
+
         <div class="container-item">
-            <h1>Map</h1>
-            <h2>Rotterdam</h2>
             <div class="inner-item">
-                <!-- Insert -->            
+                <input type="text" id="locationNameInput" placeholder="Where you want to land?">
             </div>
+        </div>
+ 
+        <div class="container-item">
+                <h1>Map</h1>
+                
+            <div class="inner-item">
+                <p id="locationName">Rotterdam</p>
+                <div id="map"></div>        
+            </div>
+
         </div>
 
         <div class="container-item">
             <h1>Weather</h1>
             <div class="inner-item">
-                <!-- Insert -->
+                <img src="images/lightning.svg" alt="weatherIcon" id="weatherIcon">
+                <p id="showWeatherTemp">71</p>
             </div>
-            <!-- <h2>Safe landing!</h2> -->
+            <p id="showStatusForLanding">Safe landing!</p>
         </div>
 
 
     </div>
 
-<script src="js/main.js"></script>
+
 </body>
 </html>
