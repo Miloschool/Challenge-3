@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+
     <title>SpaceX Dashboard</title>
     <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
     <script src="http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=dc63d1b39e1309ba418adb073ef2f8a8"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet'/>
-
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
 
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -26,7 +26,7 @@
 
         <div class="container-item">
             <div class="inner-item">
-                <div type="text" id='geocoder' class='geocoder'  placeholder="Where you want to land?"> </div>
+                <div type="text" id='geocoder'  placeholder="Where you want to land?"> </div>
             </div>
         </div>
  
@@ -34,7 +34,7 @@
                 <h1>Map</h1>
                 
             <div class="inner-item">
-                <p id="locationName"></p>
+                <p id="locationNameOutput"></p>
                 <div id="map"></div>        
             </div>
 

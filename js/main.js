@@ -1,5 +1,6 @@
 // mapbox
 
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibWlpbG8wdyIsImEiOiJja21heGhuczgxdzZpMnlrbmJlaG1pZWtpIn0.x9lZ8TM64di7MVqvEq4vSA';
 var map = new mapboxgl.Map({
 container: 'map', // container ID
@@ -10,22 +11,26 @@ zoom: 9 // starting zoom
 
 var geoLocation = new MapboxGeocoder({ // Create to be able to access my token
     accessToken: mapboxgl.accessToken, 
-    mapboxgl: mapboxgl
+    mapboxgl: mapboxgl,
+})
 
+var locationName = document.getElementById('geocoder').appendChild(geoLocation.onAdd(map)); //searchbar
+
+
+var suggestionsShown = document.getElementsByClassName('suggestions');
+
+suggestionsShown.addEventListener('click', function(e){
+
+    console.log('WORKS LAN');
 });
 
+// setInterval(function(){ 
+//     // var getLocationName = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input')[0].value;
+//     // document.getElementById('locationNameOutput').innerHTML = getLocationName;
 
-document.getElementById('geocoder').appendChild(geoLocation.onAdd(map));
 
 
-// Weather
 
-// var key = 'dc63d1b39e1309ba418adb073ef2f8a8';
-// fetch('https://api.openweathermap.org/data/2.5/weather?id=' + '2747891'+ '&appid=' + key)
-// .then(function(resp) { return resp.json() }) // Convert data to json
-// .then(function(data) {
-//   console.log(data);
-// })
-// .catch(function() {
-  // catch any errors
-});
+// }, 500);
+
+
