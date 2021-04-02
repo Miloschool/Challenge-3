@@ -102,9 +102,9 @@ h1 {
     text-align: center;
     padding: 15px 10px 15px 10px;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 22px;
     width: 70px;
-    height: 30px;
+    height: auto;
     border-radius: 10px;
     background-color:#F3F3F3;    
     box-shadow: 0px 4px 8px  #C3CBD8;
