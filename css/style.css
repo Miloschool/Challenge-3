@@ -24,8 +24,6 @@ nav {
 
 
 
-
-
 /* Container */
 
     .container {
@@ -67,15 +65,23 @@ h1 {
 
     background-color: #8a80fd;
     border-radius: 10px;
-    height: 50px;
+    height: auto;
+    min-height: 50px;
     color: white;
     line-height:50px;
     padding: 5px 0px 5px 0px;
     text-align: center;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 18px;
 
 
+}
+
+.coor{
+    width: 300px;
+    height: 500px;
+    font-size: 30px;
+    color: yellow;
 }
 
 #map{
