@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SpaceX Dashboard</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">  
     <script src="js/main.js" defer></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"  type="text/css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet'/>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
-
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
 
+<body>
     <nav>
         <img src="images/SpaceX-Logo.svg" alt="" srcset="" id="nav_logo">
     </nav>
- 
-    <div class="container">
 
+    <div class="container">
         <div class="container-item">
             <div class="inner-item">
-                <div type="text" id='geocoder'  placeholder="Where you want to land?"> </div>
+                <div type="text" id='geocoder' placeholder="Where you want to land?"> </div>
             </div>
         </div>
 
         <div class="container-item">
-                <h1>Map</h1>
-                
+            <h1>Map</h1>
             <div class="inner-item">
                 <p id="locationNameOutput"></p>
-                <div id="map"></div>        
+                <div id="map"></div>
             </div>
-
         </div>
 
         <div class="container-item">
@@ -45,10 +40,8 @@
                 <img alt="weatherIcon" id="weatherIcon">
                 <p id="showWeatherTemp"></p>
             </div>
-            <p id="showStatusForLanding">Safe landing!</p>
+            <p id="showStatusForLanding"></p>
         </div>
-
-
     </div>
 </body>
 </html>
